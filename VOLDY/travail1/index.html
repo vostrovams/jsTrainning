@@ -6,55 +6,33 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>CountriesManger</title>
         <meta charset="UTF-8">
-
-        <script src="../../librairies/angular.min.js"></script>
-        <script src="pays.js"></script>
         <link href="../../librairies/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     </head>
-    <body style="">
-
+    <body >
+	<script src="../../librairies/angular.min.js"></script>
+    <script src="pays.js"></script>
         <div ng-app="pays" ng-controller="PaysController as paysCtrl"  class="row" >
             <!--affichage du tableau cotenatn la liste des pays ainsi que les capitales-->
-
-
             <div class="col-lg-4 col-lg-offset-1">
-
                 <table class="table table-bordered table-striped table-responsive ">
                     <caption><h4>La liste des pays</h4></caption>
                     <thead>
-
                         <tr class="success">
-
-                            <th>
-                                pays
-                            </th>
-                            <th>
-                                Capital
-                            </th>
-                            <th>
-                                action
-                            </th>
-
+                            <th>pays</th>
+                            <th>Capital</th>
+                            <th>action</th>
                         </tr>
-
                     </thead>
-
-
                     <tbody >
                         <tr ng-repeat="p in paysCtrl.countries" >
-
                             <td>{{p.name}}</td>
                             <td>{{p.capital}}</td>
-                            <td><a href="#" value="" class=" " ng-click="paysCtrl.deleteItem($index)">delete</a> /
-                                <a href="#" value="" class=" " ng-click="paysCtrl.getItem($index, p)">update</a> </td>
-
+                            <td><a href="#" value="" class=" " ng-click="paysCtrl.deleteItem($index)">delete</a> / <a href="#" value="" class=" " ng-click="paysCtrl.getItem($index, p)">update</a> </td>
                         </tr>
                     </tbody>
-
-
                 </table>
             </div>
             <div class="col-lg-4 col-lg-offset-1">
@@ -63,15 +41,12 @@ and open the template in the editor.
                         <legend>Saisie des données</legend>
                         <div class="form-group" >
                             <label for="nomPays">Nom Pays <span style="color:red">*</span></label>
-                            <input type="text" ng-model="paysCtrl.country.name" name="nomPays" id="nomPays" value="" class="form-control input-lg" placeholder="saisissez le nom du pays"/>
+                            <input type="text" ng-model="paysCtrl.country.name" name="nomPays" id="nomPays" value="" class="form-control input-lg" placeholder="saisissez le nom du pays" required/>
                             <span class="help-block"><em></em></span>
-
                         </div>
-
                         <div class="form-group ">
                             <label for="postnomRep">Capital <span style="color:red">*</span></label>
-
-                            <input type="text" name="postnomRep" ng-model="paysCtrl.country.capital" value="" id="postnomRep" placeholder="saisissez la capitale" class="form-control input-lg">
+                            <input type="text" name="postnomRep" ng-model="paysCtrl.country.capital" value="" id="postnomRep" placeholder="saisissez la capitale" class="form-control input-lg" required>
                             <span class="help-block"><em></em></span>
                         </div>
                         <div>
@@ -81,11 +56,9 @@ and open the template in the editor.
                         </div>
                         <p >country={{paysCtrl.country|json}}</p>
                         <p>contries={{paysCtrl.countries|json}}</p>
-                    </fieldset>
+						</fieldset>
                 </form>
-
             </div>
-
         </div>
     </body>
 </html>
