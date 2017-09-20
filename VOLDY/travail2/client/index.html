@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Country Manager</title>
+    <meta charset="UTF-8">
+    <script src="../librairies/angular.min.js"></script>
+    <script src="pays.js"></script>
+    <link href="../librairies/bootstrap.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div ng-app="pays" ng-controller="PaysController as paysCtrl" class="row">
+        <!--affichage du tableau cotenatn la liste des pays ainsi que les capitales-->
+        <div class="col-lg-5 ">
+            <table class="table table-bordered table-striped table-responsive ">
+                <h5>La liste des pays</h5>
+                <thead>
+                    <tr class="success">
+                        <th>id</th>
+                        <th>pays</th>
+                        <th>Capital</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="p in paysCtrl.countries">
+                        <td>{{p.id}}</td>
+                        <td>{{p.name}}</td>
+                        <td>{{p.capital}}</td>
+                        <td><a href="#" value="" class=" " ng-click="paysCtrl.deleteItem($index)">delete</a> /
+                            <a href="#" value="" class=" " ng-click="paysCtrl.getItem($index, p)">update</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-7 col-lg-offset-1">
+            <form novalidate>
+                <fieldset>
+                    <legend>Saisie des données</legend>
+                    <div class="form-group">
+                        <label for="idPays">Id pays <span style="color:red">*</span></label>
+                        <input type="text" ng-model="paysCtrl.pays.id" id="idPays" value="" class="form-control input-lg" placeholder="saisissez l'id' du pays"
+                        />
+                        <span class="help-block"><em></em></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="nomPays">Nom Pays <span style="color:red">*</span></label>
+                        <input type="text" ng-model="paysCtrl.pays.name" id="nomPays" value="" class="form-control input-lg" placeholder="saisissez le nom du pays"
+                        />
+                        <span class="help-block"><em></em></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="capitalPays">Capital <span style="color:red">*</span></label>
+                        <input type="text" ng-model="paysCtrl.pays.capital" value="" id="capitalPays" placeholder="saisissez la capitale" class="form-control input-lg ">
+                        <span class="help-block"><em></em></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="index">index <span style="color:red">*</span></label>
+                        <input type="text" ng-model="paysCtrl.index" value="" id="index" placeholder="" class="form-control input-lg " readonly>
+                    </div>
+                    <div>
+                        <input type="submit" value="ajouter" class="btn btn-success" ng-click="paysCtrl.ajouter(paysCtrl.pays)">
+                        <input type="submit" value="modifier" class="btn btn-warning" ng-click="paysCtrl.modifier(paysCtrl.index, paysCtrl.pays)">
+                        <input type="submit" value="reinitialiser" class="btn btn-danger" ng-click="paysCtrl.init()" />
+                    </div>
+                </fieldset>
+            </form>
+            <span>{{paysCtrl.mesg}}</span>
+            <p>pays={{paysCtrl.pays|json}}</p>
+            <p>contries={{paysCtrl.countries|json}}</p>
+        </div>
+    </div>
+</body>
+
+</html>

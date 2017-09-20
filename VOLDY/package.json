@@ -1,0 +1,11 @@
+{
+  "name": "express_app",
+  "version": "1.0.0",
+  "description": "The first examples of using express, in the Js-trainning",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JS-trainning (DedrickEnc)",
+  "license": "ISC"
+}
